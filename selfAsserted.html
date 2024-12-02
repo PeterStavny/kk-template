@@ -764,4 +764,14 @@
         </div>
     </div>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var inputField = document.getElementById('extension_Code');
+      if (inputField) {
+          inputField.setAttribute('autocomplete', 'off');
+          inputField.setAttribute('autocorrect', 'off');
+          inputField.setAttribute('spellcheck', 'true');
+      }
+  });
+</script>
 </html>
