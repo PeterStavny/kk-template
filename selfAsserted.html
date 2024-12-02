@@ -745,17 +745,6 @@
         /* endinject */
     </style>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          var inputField = document.getElementById('extension_Code');
-          if (inputField) {
-              inputField.setAttribute('autocomplete', 'off');
-              inputField.setAttribute('autocorrect', 'off');
-              inputField.setAttribute('spellcheck', 'true');
-          }
-      });
-    </script>
-
 </head>
 <body>
     <div id="background_branding_container" data-tenant-branding-background-color="true">
@@ -774,5 +763,15 @@
             </div>
         </div>
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var inputField = document.getElementById('extension_Code');
+          if (inputField) {
+              inputField.setAttribute('autocomplete', 'off');
+              inputField.setAttribute('autocorrect', 'off');
+              inputField.setAttribute('spellcheck', 'true');
+          }
+      });
+    </script>
 </body>
 </html>
