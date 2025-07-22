@@ -1,6 +1,8 @@
-const inputMasker = () => {
-  const input = document.querySelector("input[name='extension_Code']");
-  if (input && !input.dataset.masked) {
+(function () {
+  console.log("⏳ Čakám na input #extension_Code...");
+
+  const maskInput = (input) => {
+    console.log("✅ Input nájdený, aplikujem masku...");
     input.setAttribute("pattern", "[A-Z0-9]{3}-[A-Z0-9]{3}-[A-Z0-9]{3}");
     input.setAttribute("placeholder", "XXX-XXX-XXX");
     input.addEventListener("input", function (e) {
@@ -10,9 +12,14 @@ const inputMasker = () => {
       });
       e.target.value = val;
     });
-    input.dataset.masked = "true";
-  }
-};
+  };
 
-const observer = new MutationObserver(inputMasker);
-observer.observe(document.body, { childList: true, subtree: true });
+  const waitForInput = setInterval(() => {
+    const input = document.getElementById("extension_Code");
+    if (input && !input.dataset.masked) {
+      maskInput(input);
+      input.dataset.masked = "true";
+      clearInterval(waitForInput);
+    }
+  }, 300);
+})();
