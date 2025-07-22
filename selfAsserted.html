@@ -745,29 +745,7 @@
         /* endinject */
     </style>
 
-    <script defer>
-      const maskInput = (input) => {
-        input.setAttribute("pattern", "[A-Z0-9]{3}-[A-Z0-9]{3}-[A-Z0-9]{3}");
-        input.setAttribute("placeholder", "XXX-XXX-XXX");
-        input.addEventListener("input", function (e) {
-          let val = e.target.value.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
-          val = val.slice(0, 9).replace(/(.{3})(.{3})?(.*)?/, function (_, a, b, c) {
-            return [a, b, c].filter(Boolean).join("-");
-          });
-          e.target.value = val;
-        });
-      };
-
-      const observer = new MutationObserver(() => {
-        const input = document.querySelector("input[name='extension_Code']");
-        if (input && !input.dataset.masked) {
-          maskInput(input);
-          input.dataset.masked = "true"; // aby sme to nespustili opakovane
-        }
-      });
-
-      observer.observe(document.body, { childList: true, subtree: true });
-    </script>
+    <script src="https://delightful-moss-0e5c66e03.5.azurestaticapps.net/registration-code-mask.js"></script>
 </head>
 <body>
     <div id="background_branding_container" data-tenant-branding-background-color="true">
